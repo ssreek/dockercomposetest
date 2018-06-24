@@ -1,0 +1,25 @@
+version: '3'
+services:
+  webone:
+   image: 127.0.0.1:5000/stacksreedemo
+   build: ./webapp
+   ports:
+   - "5001:5000"
+   environment:
+   - MyServerName="Node1"
+  webtwo:
+   image: 127.0.0.1:5000/stacksreedemo
+   build: ./webapp
+   ports:
+   - "5002:5000"
+   environment:
+   - MyServerName="Node2"
+  nginxload:
+   image: 127.0.0.1:5000/stacksreenginx
+   build: ./ngnixload
+   ports:
+   - "8080:80"
+  database:
+    image: 127.0.0.1:5000/stacksreemango
+    ports:
+    - "32769:27017"

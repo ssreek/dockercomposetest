@@ -1,0 +1,13 @@
+version: '3'
+services:
+  webone:
+   image: 127.0.0.1:5000/stacksreedemo
+   build: ./webapp
+   ports:
+   - "6100:6000"
+   environment:
+   - MyServerName="Node1"
+  database:
+    image: mongo
+    ports:
+    - "32769:27017"
